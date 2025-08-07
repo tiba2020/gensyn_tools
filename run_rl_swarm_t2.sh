@@ -173,9 +173,9 @@ if [ "$CONNECT_TO_TESTNET" = true ]; then
     #    sleep 5  # Wait for 5 seconds before checking again
     #done
     #echo "Found userData.json. Proceeding..."
-    while [ -f "modal-login/temp-data/userData.json" ]; do
+    if [ -f "modal-login/temp-data/userData.json" ]; do
         echo "Found userData.json. Proceeding..."
-    done
+    fi
     
     ORG_ID=$(awk 'BEGIN { FS = "\"" } !/^[ \t]*[{}]/ { print $(NF - 1); exit }' modal-login/temp-data/userData.json)
     echo "Your ORG_ID is set to: $ORG_ID"
