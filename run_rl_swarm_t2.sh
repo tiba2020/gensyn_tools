@@ -107,6 +107,7 @@ if [ "$CONNECT_TO_TESTNET" = true ]; then
 
     # Node.js + NVM setup
     if ! command -v node > /dev/null 2>&1; then
+        echo "Node install triggered"
         echo "Node.js not found. Installing NVM and latest Node.js..."
         export NVM_DIR="$HOME/.nvm"
         if [ ! -d "$NVM_DIR" ]; then
@@ -146,7 +147,7 @@ if [ "$CONNECT_TO_TESTNET" = true ]; then
 
     # Docker image already builds it, no need to again.
     if [ -z "$DOCKER" ]; then
-        yarn install --immutable
+        yarn install --immutable --ignore-engines
         echo "Building server"
         yarn build > "$ROOT/logs/yarn.log" 2>&1
     fi
