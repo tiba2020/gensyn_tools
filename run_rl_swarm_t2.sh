@@ -173,7 +173,7 @@ if [ "$CONNECT_TO_TESTNET" = true ]; then
     #    sleep 5  # Wait for 5 seconds before checking again
     #done
     #echo "Found userData.json. Proceeding..."
-    if [ -f "modal-login/temp-data/userData.json" ]; do
+    if [ -f "modal-login/temp-data/userData.json" ]; then
         echo "Found userData.json. Proceeding..."
     fi
     
